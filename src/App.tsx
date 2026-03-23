@@ -121,7 +121,7 @@ export default function App() {
             <p className="hero-desc">I don't just solve problems; I architect the next three solutions before they're even needed.<br /><strong>Founder of Craftelite Studio.</strong></p>
             <div className="hero-cta-row">
               <a href="#work" className="btn-primary neo-border">VIEW WORK →</a>
-              <a href="#contact" className="btn-secondary neo-border">LET'S TALK 💬</a>
+              <button className="btn-secondary neo-border" onClick={() => { setModalOpen(true); setFormErr(''); }}>LET'S TALK 💬</button>
             </div>
           </div>
           <div className="hero-center sr">
