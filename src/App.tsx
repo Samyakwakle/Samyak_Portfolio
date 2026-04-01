@@ -17,6 +17,16 @@ const CAREER = [
 
 export default function App() {
   /* ── LOADING ── */
+  /* ── DARK MODE ── */
+  const [dark, setDark] = useState(() => {
+    const saved = localStorage.getItem('sk-theme');
+    return saved !== null ? saved === 'dark' : false; // default light
+  });
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    localStorage.setItem('sk-theme', dark ? 'dark' : 'light');
+  }, [dark]);
+
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
 
@@ -101,6 +111,9 @@ export default function App() {
       {/* ── NAV ── */}
       <nav className="nav">
         <div className="nav-logo">SAMYAK.STUDIO</div>
+        <button className="theme-toggle" onClick={() => setDark(d => !d)} aria-label="Toggle theme" title={dark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
+          {dark ? '☀️' : '🌙'}
+        </button>
         <div className="nav-links">
           <a href="#whatido" className="nav-btn neo-border">WHAT I DO</a>
           <a href="#work" className="nav-btn neo-border">WORK</a>
@@ -142,6 +155,7 @@ export default function App() {
               <div className="hero-tag neo-border">MediaPipe</div>
               <div className="hero-tag neo-border">Premiere Pro</div>
               <div className="hero-tag neo-border">CapCut</div>
+              <div className="hero-tag neo-border">College Video Edits</div>
               <div className="hero-tag neo-border">Workflow</div>
             </div>
           </div>
@@ -277,7 +291,7 @@ export default function App() {
           {[
             { icon: 'AI', label: 'AIML DEVELOPMENT', green: true, text: 'Developing AI-powered tools like Air Scroll using MediaPipe and hand tracking. Specialising in computer vision and Python algorithms.' },
             { icon: 'SA', label: 'SOFTWARE ARCHITECTURE', green: false, text: 'Building high-speed desktop solutions (VMS_Cropper Pro) that bulk crop photos in seconds, ensuring 100% offline data security. Scaling workflow automations.' },
-            { icon: 'MC', label: 'MEDIA CREATION', green: false, white: true, text: 'End-to-end production for digital ads and events. Professional cinematography and colour grading into modern creative workflows. Next stop: Social Media Manager.' },
+            { icon: 'MC', label: 'MEDIA CREATION', green: false, white: true, text: 'End-to-end production for digital ads and events. Skilled in Adobe Premiere Pro, After Effects, and Photoshop. Learning Adobe Illustrator. Now shifted to DaVinci Resolve by Blackmagic Design for professional workflows.' },
           ].map((s, i) => (
             <div className="skill-item sr" key={i}>
               <div className={`skill-icon neo-border${s.green ? ' green' : ''}${s.white ? ' white-icon' : ''}`}>{s.icon}</div>
@@ -289,6 +303,38 @@ export default function App() {
           ))}
         </div>
       </section>
+
+      {/* ── CREATIVE TOOLKIT ── */}
+      <section className="toolkit-section" id="toolkit">
+        <div className="toolkit-header sr">
+          <h2>Creative <span className="cyan-text">Software</span> & Tools</h2>
+          <p>My media creation arsenal — from seasoned skills to active learning.</p>
+        </div>
+        <div className="toolkit-grid">
+          <div className="tool-card neo-border sr">
+            <h3 className="tool-name">Adobe Photoshop</h3>
+            <span className="tool-status tool-pro">Skilled</span>
+          </div>
+          <div className="tool-card neo-border sr">
+            <h3 className="tool-name">Premiere Pro</h3>
+            <span className="tool-status tool-learning">Learning</span>
+          </div>
+          <div className="tool-card neo-border sr">
+            <h3 className="tool-name">After Effects</h3>
+            <span className="tool-status tool-learning">Learning</span>
+          </div>
+          <div className="tool-card neo-border sr">
+            <h3 className="tool-name">Adobe Illustrator</h3>
+            <span className="tool-status tool-learning">Learning</span>
+          </div>
+          <div className="tool-card neo-border tool-featured sr">
+            <div className="magic-sparkle">✨</div>
+            <h3 className="tool-name">DaVinci Resolve</h3>
+            <span className="tool-status tool-upgrading">Upgrading Skills</span>
+          </div>
+        </div>
+      </section>
+
 
       {/* ── FOOTER / CONTACT ── */}
       <footer className="footer" id="contact">
