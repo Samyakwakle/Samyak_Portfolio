@@ -3,10 +3,12 @@ import './index.css';
 
 /* ── helpers ── */
 const PROJECTS = [
-  { num: '01', title: 'VMS_Cropper Pro', category: 'Desktop Automation', tools: 'Python · Image Processing · 100% Offline', emoji: '✂️' },
-  { num: '02', title: 'Ajantha Graphics Tools', category: 'File Management Suite', tools: 'Batch Processing · PDF/Image Optimization · Workflow', emoji: '🎨' },
-  { num: '03', title: 'Air Scroll', category: 'AI Hand-Tracking App', tools: 'MediaPipe · Computer Vision · Python', emoji: '✋' },
-  { num: '04', title: 'Cinematic Productions', category: 'College Shoots & Editing', tools: 'Premiere Pro · CapCut · Motion Graphics', emoji: '🎬' },
+  { num: '01', title: 'Vishal Multi Services', category: 'High-Performance Web Platform', tools: 'Next.js (App Router) · Supabase · R2 · Tailwind', emoji: '🌐', desc: 'Designed a highly secure, data collection platform for school staff. Features a dynamic form engine, mobile-optimised photo capture to Cloudflare R2, zero-trust architecture via Server Actions, strict HttpOnly rate limiting, and an Admin Dashboard for real-time Excel exports and analytics.', link: 'https://vishalmultiservices.in' },
+  { num: '02', title: 'Pragati Multi Services', category: 'Cloud Data Workflow Platform', tools: 'Next.js · Supabase (PostgreSQL) · Vercel', emoji: '☁️', desc: 'Developed a scalable cloud workflow to modernise institutional record-keeping and ID generation. Enables dynamic school onboarding, localized forms, and securely processes thousands of entries and images. Powers a real-time admin portal with automated Excel generation and insights.', link: 'https://pragati-multi-services.vercel.app/' },
+  { num: '03', title: 'VMS_Cropper Pro', category: 'Desktop Automation', tools: 'Python · Image Processing · 100% Offline', emoji: '✂️' },
+  { num: '04', title: 'Ajantha Graphics Tools', category: 'File Management Suite', tools: 'Batch Processing · PDF/Image Optimization · Workflow', emoji: '🎨' },
+  { num: '05', title: 'Air Scroll', category: 'AI Hand-Tracking App', tools: 'MediaPipe · Computer Vision · Python', emoji: '✋' },
+  { num: '06', title: 'Cinematic Productions', category: 'College Shoots & Editing', tools: 'Premiere Pro · CapCut · Motion Graphics', emoji: '🎬' },
 ];
 
 const CAREER = [
@@ -244,6 +246,8 @@ export default function App() {
                         <span className="c-tools-label">Tools & Features</span>
                         <p>{p.tools}</p>
                       </div>
+                      {p.desc && <p style={{ marginTop: '15px', color: '#bbb', fontSize: '0.9rem', lineHeight: '1.6' }}>{p.desc}</p>}
+                      {p.link && <a href={p.link} target="_blank" rel="noreferrer" style={{ display: 'inline-block', marginTop: '15px', color: 'var(--cyan)', fontWeight: 'bold' }}>Visit Project ↗</a>}
                     </div>
                     <div className="c-emoji-panel">{p.emoji}</div>
                   </div>
