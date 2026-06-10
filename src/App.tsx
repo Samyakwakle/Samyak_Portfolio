@@ -141,7 +141,7 @@ export default function App() {
           </div>
           <div className="hero-center sr">
             <div className="hero-photo-wrap">
-              <img src="/Photo.jpeg" alt="Samyak Wakle" className="hero-photo" />
+              <img src="/Photo.jpg" alt="Samyak Wakle" className="hero-photo" />
               <div className="hero-photo-ring" />
               <div className="hero-photo-glow" />
             </div>
